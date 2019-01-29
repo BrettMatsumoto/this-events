@@ -22,8 +22,34 @@ function innerSwitch(){
 
 /*2) to each restaurant name that will show and hide (toggle) the secret menu item for that particular restaurant.*/
 
+var restMenu = document.getElementsByClassName('name');
+// console.log(restMenu)
+
+for(i=0;i<restMenu.length;i++){
+    restMenu[i].addEventListener('click', daSecret)
+}
+
+function daSecret(){
+    var showSecret = this.querySelectorAll('.menu')[0]
+    if(showSecret.style.display === 'block'){
+        showSecret.style.display = 'none';
+    } else {
+        showSecret.style.display = 'block'
+    }
+}
 
 /*3) to the thumbs down icon that will add a count (counter) for each time the icon is clicked on.*/
 
+var thumbDown = document.getElementsByClassName('thumb');
+// console.log(thumbDown)
 
-
+for (i=0;i<thumbDown.length;i++){
+    thumbDown[i].addEventListener('click', giveThumb);
+    var counter = document.createElement('div');
+    counter.className = 'dislikes';
+    thumbDown[i].appendChild(counter)
+}
+function giveThumb(){
+    var dontLike = this.querySelectorAll('.dislikes')[0]
+    dontLike.innerHTML++
+}
